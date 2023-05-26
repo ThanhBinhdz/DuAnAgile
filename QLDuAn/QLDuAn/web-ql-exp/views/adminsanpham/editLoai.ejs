@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
+    <title>Edit Loại</title>
+</head>
+
+<body>
+    <div class="container-fluid"
+        style="padding-bottom: 100px;padding-top: 50px;">
+        <div class="container col-8" style="display:flex;grid-gap: 35px; text-align: center;">
+            <div class="row border border-dark-subtle border-start rounded-start "
+                style="margin-top: 40px;width: 500px;background-image: url('/images/avt.png');background-size: 100% 100%;margin-bottom: 14px; ">
+            </div>
+            <div class="row" style="margin-top: 40px;width: 500px;">
+                <div class="row border border-dark-subtle border-start rounded-end"
+                    style="padding: 10px;margin-bottom: 15px;background-color: #fff;">
+                    <h4 style="margin-top: 10px;margin-bottom: 20px;">Sửa Thể Loại</h4>
+                    <form action="" method="post">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Tên Loại</label>
+                                <input type="text" class="form-control" placeholder="Nhập tên loại" name="tenloai" value="<%=objLoai.tenloai%>">
+                            </div>
+                            
+
+
+                            <button type="submit" class="btn btn-success">
+                                Sửa
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="/bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

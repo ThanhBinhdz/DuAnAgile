@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
+    <title>Đăng Nhập</title>
+    <style>
+        a {
+            position: relative;
+            font-family: "Great Vibes", serif;
+
+            text-decoration: none;
+
+        }
+
+        a:hover::after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+
+            /* Adjust height and bottom values to work with selected font */
+            height: .05em;
+            bottom: .1em;
+
+            /* Create gradient */
+            background-image: linear-gradient(to right,
+                    transparent 0%,
+                    rgba(var(#EEEEEE), .6) 30%,
+                    rgba(var(#EEEEEE), .7) 50%,
+                    rgba(var(#EEEEEE), .6) 70%,
+                    transparent 100%);
+
+            /* Set-up fade-in animation */
+            opacity: 0;
+            animation: fadeIn 400ms ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+    <!-- font-family: consolas; -->
+    <!-- background-image:url('../imagess/bg1.png') -->
+</head>
+
+<body>
+    <div class="container-fluid m-auto"
+        style="background-image:url('../images/bg1.png');background-size: 100% 100%;text-align: center;">
+        <div class="row" style="text-align: center;">
+            <p style="font-family: consolas;letter-spacing: 5px;margin-top: 40px;">SPICE UP YOUR TYPE WITH CSS</p>
+        </div>
+        <div class="row" style="text-align: center;">
+            <div style="font-size: 40px;letter-spacing: 5px;font-weight: bold;">
+                <script type="text/javascript">
+                    farbbibliothek = new Array();
+                    farbbibliothek[0] = new Array("#FF0000", "#FF1100", "#FF2200", "#FF3300", "#FF4400", "#FF5500", "#FF6600", "#FF7700", "#FF8800", "#FF9900", "#FFaa00", "#FFbb00", "#FFcc00", "#FFdd00", "#FFee00", "#FFff00", "#FFee00", "#FFdd00", "#FFcc00", "#FFbb00", "#FFaa00", "#FF9900", "#FF8800", "#FF7700", "#FF6600", "#FF5500", "#FF4400", "#FF3300", "#FF2200", "#FF1100");
+                    farbbibliothek[1] = new Array("#00FF00", "#000000", "#00FF00", "#00FF00");
+                    farbbibliothek[2] = new Array("#00FF00", "#FF0000", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00", "#00FF00");
+                    farbbibliothek[3] = new Array("#FF0000", "#FF4000", "#FF8000", "#FFC000", "#FFFF00", "#C0FF00", "#80FF00", "#40FF00", "#00FF00", "#00FF40", "#00FF80", "#00FFC0", "#00FFFF", "#00C0FF", "#0080FF", "#0040FF", "#0000FF", "#4000FF", "#8000FF", "#C000FF", "#FF00FF", "#FF00C0", "#FF0080", "#FF0040");
+                    farbbibliothek[4] = new Array("#FF0000", "#EE0000", "#DD0000", "#CC0000", "#BB0000", "#AA0000", "#990000", "#880000", "#770000", "#660000", "#550000", "#440000", "#330000", "#220000", "#110000", "#000000", "#110000", "#220000", "#330000", "#440000", "#550000", "#660000", "#770000", "#880000", "#990000", "#AA0000", "#BB0000", "#CC0000", "#DD0000", "#EE0000");
+                    farbbibliothek[5] = new Array("#000000", "#000000", "#000000", "#FFFFFF", "#FFFFFF", "#FFFFFF");
+                    farbbibliothek[6] = new Array("#0000FF", "#FFFF00");
+                    farben = farbbibliothek[0];
+                    function farbschrift() { for (var b = 0; b < Buchstabe.length; b++) { document.all["a" + b].style.color = farben[b] } farbverlauf() }
+                    function string2array(b) { Buchstabe = new Array(); while (farben.length < b.length) { farben = farben.concat(farben) } k = 0; while (k <= b.length) { Buchstabe[k] = b.charAt(k); k++ } }
+                    function divserzeugen() { for (var b = 0; b < Buchstabe.length; b++) { document.write("<span id='a" + b + "' class='a" + b + "'>" + Buchstabe[b] + "</span>") } farbschrift() }
+                    var a = 1;
+                    function farbverlauf() { for (var b = 0; b < farben.length; b++) { farben[b - 1] = farben[b] } farben[farben.length - 1] = farben[-1]; setTimeout("farbschrift()", 30) }
+                    var farbsatz = 1;
+                    // function farbtauscher(){farben=farbbibliothek[farbsatz];while(farben.length<text.length){farben=farben.concat(farben)}farbsatz=Math.floor(Math.random()*(farbbibliothek.length-0.0001))}setInterval("farbtauscher()",5000);
+
+                    text = "HELLO FRIEND"; //h
+                    string2array(text);
+                    divserzeugen();
+                </script>
+            </div>
+
+
+        </div>
+        <div class="row" style="text-align: center;">
+            <p style="font-family: consolas;letter-spacing: 5px;margin-bottom: 40px;">- NO JAVASCRIPT REQUIRED -</p>
+        </div>
+        <div class="row border border-dark-subtle border-start rounded-2"
+            style="width: 400px;padding: 20px;background-color:#EEEEEE;display: inline-block;margin-bottom: 120px; box-shadow: 3px 3px 3px 3px #DDDDDD;">
+            <form action="" method="post">
+                <div class="mb-3">
+                    <h2>Sign In</h2>
+                </div>
+                <div class="mb-3" style="text-align: left;">
+                    <label for="exampleInputUser1" class="form-label">Username</label>
+                    <input type="text" class="form-control" name="username">
+                </div>
+                <div class="mb-3" style="text-align: left;">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="passwd">
+                </div>
+                <div class="mb-3 form-check" style="text-align: left;">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Submit
+                </button>
+
+                <div style="text-align: right;margin-top: 40px;">
+                    <a class="text_dk" href="/dangky" style="text-decoration: solid;">
+                        Do not have an account ? Register
+                    </a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</body>
+
+</html>
