@@ -15,8 +15,10 @@ router.post('/addsp',upload.single('image'),spCtrl.addsp);
 router.get('/editSP/:idsp',spCtrl.editsp );
 router.post('/editSP/:idsp',upload.single('image'),spCtrl.editsp );
 
-
-
+router.get('/deleteSP/:idsp',spCtrl.deleteSP);
+router.delete('/deleteSP/:idsp',spCtrl.deleteSP);
+router.get('/xacnhandeleteSP/:idsp',spCtrl.xacnhandeleteSP);
+router.delete('/xacnhandeleteSP/:idsp',spCtrl.xacnhandeleteSP);
 
 
 router.get('/editLoai/:idloai',spCtrl.editloai );

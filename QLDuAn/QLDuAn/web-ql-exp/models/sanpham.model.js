@@ -7,6 +7,12 @@ const spSchema = new db.mongoose.Schema(
         giatien : {type : Number, required : true},
         image : {type : String, required : true},
         mota : {type : String, required : true},
+        categories:[
+            {
+                type : db.mongoose.Schema.Types.ObjectId,
+                ref:"loaiModel"
+            }
+        ]
         
     },
     {
@@ -16,7 +22,13 @@ const spSchema = new db.mongoose.Schema(
 
 const loaiSPSchema = new db.mongoose.Schema(
     {
-        tenloai :  {type : String , required : true}
+        tenloai :  {type : String , required : true},
+        products:[
+            {
+                type : db.mongoose.Schema.Types.ObjectId,
+                ref:"spModel"
+            }
+        ]
     },
     {
         collection : 'db_loaisp'
