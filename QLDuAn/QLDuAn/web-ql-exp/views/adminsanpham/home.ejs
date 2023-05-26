@@ -23,8 +23,7 @@
         div.item:hover div.detail {
             display: block;
         }
-
-        a:hover {
+        a:hover{
             color: red;
         }
     </style>
@@ -149,9 +148,8 @@
                         <h5 style="margin-left: 10px;">Danh Sách Sản Phẩm</h5>
                     </div>
                     <div>
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-                                name="tensp">
+                        <form class="d-flex" role="search" >
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="tensp">
                             <button class="btn btn-outline-success" type="submit">Search</button>
                         </form>
                     </div>
@@ -270,15 +268,14 @@
                                         </a>
                                         <ul class="dropdown-menu">
                                             <% listLoai.forEach(function(i){ %>
-                                                <li><a class="dropdown-item" href="/admin/sanpham/home/<%=i._id%>">
+                                                <li><a class="dropdown-item" href="/admin/sanpham/home?cate_id=<%=i._id%>">
                                                         <%=i.tenloai%>
                                                     </a></li>
                                                 <%}) %>
                                                     <li>
                                                         <hr class="dropdown-divider">
                                                     </li>
-                                                    <li><a class="dropdown-item " href="/admin/sanpham/home">All</a>
-                                                    </li>
+                                                    <li><a class="dropdown-item " href="/admin/sanpham/home">All</a></li>
                                         </ul>
                                     </th>
                                     <th scope="col">Image</th>
@@ -290,8 +287,7 @@
                                 <% list.forEach(function(i){ %>
                                     <tr>
                                         <td>
-                                            <a href="/sanpham/showchitiet/<%=i._id%>"
-                                                style="color: black;text-decoration: none;">
+                                            <a href="/sanpham/showchitiet/<%=i._id%>" style="color: black;text-decoration: none;">
                                                 <%= i.tensp%>
                                             </a>
                                         </td>
@@ -304,10 +300,8 @@
                                         <td>
                                             <%= i.idloai.tenloai%>
                                         </td>
-
-                                        <td style="background-image: url('<%= i.image%>'); width: 150px; height: 100px; background-repeat: no-repeat;
-                                                background-size: cover
-                ">
+                                        <td>
+                                            <%= i.image%>
                                         </td>
                                         <td>
                                             <a href="/admin/sanpham/editSP/<%=i._id%>">
