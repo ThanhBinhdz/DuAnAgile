@@ -31,20 +31,25 @@ exports.home = async (req, res, next) => {
             console.log(error);
         }
     }
-    const setCateName = listProductByCateId?.products?.map((item) => {
-        return {
-            ...item,
-            idloai: {
-                _id: item.idloai,
-                tenloai: listProductByCateId.tenloai,
-            },
-        };
-    });
+   
     res.render('adminsanpham/home', {
-        list: filterByCate ? setCateName : list,
+        list: list,
         listLoai: listLoai
     });
 }
+exports.loctheoLoai = async (req,res,next) => {
+
+    var listLoai = await myDB.loaiModel.find();
+    let idloai = req.params.idloai;
+
+    let dieu_kien_loc = {idloai : idloai};
+
+     var list = await myDB.spModel.find(dieu_kien_loc).populate('idloai');
+
+    res.render('adminsanpham/home',{list : list , listLoai : listLoai} );
+
+}
+
 exports.addsp = async (req, res, next) => {
     var listLoai = await myDB.loaiModel.find();
     if (req.method == 'POST') {

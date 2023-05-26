@@ -12,6 +12,10 @@ router.post('/home',spCtrl.home );
 router.get('/addsp',spCtrl.addsp);
 router.post('/addsp',upload.single('image'),spCtrl.addsp);
 
+router.get('/home/:idloai',spCtrl.loctheoLoai);
+
+
+
 router.get('/editSP/:idsp',spCtrl.editsp );
 router.post('/editSP/:idsp',upload.single('image'),spCtrl.editsp );
 

@@ -268,7 +268,7 @@
                                         </a>
                                         <ul class="dropdown-menu">
                                             <% listLoai.forEach(function(i){ %>
-                                                <li><a class="dropdown-item" href="/admin/sanpham/home?cate_id=<%=i._id%>">
+                                                <li><a class="dropdown-item" href="/admin/sanpham/home/<%=i._id%>">
                                                         <%=i.tenloai%>
                                                     </a></li>
                                                 <%}) %>
@@ -300,9 +300,11 @@
                                         <td>
                                             <%= i.idloai.tenloai%>
                                         </td>
-                                        <td>
-                                            <%= i.image%>
-                                        </td>
+                                        <td style="background-image: url('<%= i.image%>'); width: 150px; height: 100px; background-repeat: no-repeat;
+                                            background-size: cover
+            ">
+                                       
+                                    </td>
                                         <td>
                                             <a href="/admin/sanpham/editSP/<%=i._id%>">
                                                 <svg style="margin-right: 10px;" xmlns="http://www.w3.org/2000/svg"
