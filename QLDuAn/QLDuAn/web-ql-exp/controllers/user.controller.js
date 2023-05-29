@@ -12,7 +12,7 @@ exports.dangnhap = async (req,res,next)=> {
                         // req.session.userLogin = objU;
                     return res.redirect('/admin/sanpham/home');
                     }else {
-                        return res.redirect('/dangky.ejs')
+                        return res.redirect('/khach/sanpham/home')
                     }
                     
                 }else{
