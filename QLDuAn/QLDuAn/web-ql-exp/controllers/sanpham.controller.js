@@ -105,7 +105,7 @@ exports.editsp = async (req, res, next) => {
 exports.deleteSP = async (req, res, next) => {
     let idsp = req.params.idsp;
     let list = await myDB.spModel.findById(idsp);
-
+    // binhcc
 
     res.render('adminsanpham/xoaSP', { list: list });
 }
