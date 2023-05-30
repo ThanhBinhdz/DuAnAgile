@@ -6,5 +6,7 @@ var upload = multer({ dest : './tmp'});
 
 router.get('/home',spCtrl.home );
 
+router.get('/chitietsanpham/:idsp',spCtrl.chitietsanpham );
+router.post('/chitietsanpham/:idsp',spCtrl.chitietsanpham );
 
 module.exports = router;

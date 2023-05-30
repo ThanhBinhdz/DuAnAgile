@@ -8,7 +8,7 @@ exports.home = async (req, res, next) => {
         dieu_Kien = { tensp: new RegExp('.*' + req.query.tensp + '.*') };
     }
     var list = await myDB.spModel.find(dieu_Kien).populate('idloai');
-
+    var demlist = await myDB.spModel.find().count();
     var listLoai = await myDB.loaiModel.find();
     if (req.method == 'POST') {
         let objLoai = new myDB.loaiModel();
@@ -23,7 +23,8 @@ exports.home = async (req, res, next) => {
    
     res.render('khachsanpham/khachlist', {
         list: list,
-        listLoai: listLoai
+        listLoai: listLoai,
+        demlist: demlist
     });
 }
 exports.loctheoLoai = async (req,res,next) => {
@@ -39,4 +40,11 @@ exports.loctheoLoai = async (req,res,next) => {
 
 }
 
+exports.chitietsanpham = async (req,res,next) => {
 
+    let idsp = req.params.idsp;
+    var listsp = await myDB.spModel.findById(idsp).populate('idloai');
+
+    res.render('khachsanpham/chitietsanpham', {listsp: listsp});
+
+}
