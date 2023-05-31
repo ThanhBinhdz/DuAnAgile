@@ -1,76 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
+  <title>Document</title>
+  <style>
+    a:hover {
+      color: red;
+    }
+  </style>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container" style="color: white;">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item dropdown">
-                <a style="padding: 5px; font-weight: 700; margin-top: 8px;" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Danh mục sản phẩm
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item" style="padding: 5px; font-weight: 400; margin-left: 30px;">
-                <a class="nav-link" href="#">Trang chủ</a>
-              </li>
-              <li class="nav-item" style="padding: 5px; font-weight: 400;">
-                <a class="nav-link" href="#">Sản phẩm</a>
-              </li>
-              <li class="nav-item" style="padding: 5px; font-weight: 400;">
-                <a class="nav-link" href="#">Tin tức</a>
-              </li>
-              <li class="nav-item" style="padding: 5px; font-weight: 400;">
-                <a class="nav-link" href="#">Liên hệ</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <div style="display: flex; margin-top: 25px;">
-        <div style="margin-top: 15px;">
-          <Button type="submit" style="width: 250px; margin: 20px; margin-top: 1px; border-radius: 10px;" 
-          class="btn btn-outline-success">Lọc</Button>
-        </div>
-        <div class="container">
-          <div style="margin-top: 15px;">
-            <form class="d-flex" role="search" >
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="tensp">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-          </div>
-          <div style="float: right; margin-top: 15px; margin-right: 10px;">
-            <h5><%= demlist %> sản phẩm</h5>
-          </div>
-          <div style="margin-top: 55px;" class="row">
-              <% list.forEach(function(i){ %>
-                  <div class="card" style="height: 19rem; width: 14rem; padding: 10px; margin: 10px;">
-                    <a href="/khach/sanpham/chitietsanpham/<%= i._id %>">
-                      <img src="<%= i.image %>" class="card-img-top" 
-                      style="width: 200px; height: 200px; margin-left: auto; margin-right: auto;">
-                    </a>  
-                    
-                    <div class="card-body">
-                      <h5 class="card-text"><%= i.tensp %></h5>
-                      <h5 class="card-title" style="color: red;"><%= i.giatien%> VND</h5>
-                  </div>
-                  </div>
-                <%}) %>
-          </div>
-          
-        </div>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container" style="color: white;">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a style="padding: 5px; font-weight: 700; margin-top: 8px;" class="nav-link " href="/khach/sanpham/home"
+            role="button" aria-expanded="false">
+            Danh mục sản phẩm
+          </a>
+        </li>
+        <li class="nav-item" style="padding: 5px; font-weight: 400; margin-left: 30px;">
+          <a class="nav-link" href="#">Trang chủ</a>
+        </li>
+        <li class="nav-item" style="padding: 5px; font-weight: 400;">
+          <a class="nav-link" href="#">Sản phẩm</a>
+        </li>
+        <li class="nav-item" style="padding: 5px; font-weight: 400;">
+          <a class="nav-link" href="#">Tin tức</a>
+        </li>
+        <li class="nav-item" style="padding: 5px; font-weight: 400;">
+          <a class="nav-link" href="#">Liên hệ</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+  </nav>
+  <div style="display: flex; margin-top: 25px;">
+    <div style="margin-top: 15px;">
+      <Button type="submit" style="width: 250px; margin: 20px; margin-top: 1px; border-radius: 10px;"
+        class="btn btn-outline-success">Lọc</Button>
+
+      <ul class="list-group list-group-flush" style="margin: 20px;">
+        <% listLoai.forEach( function(i){ %>
+
+          <li class="list-group-item">
+            <a href="/khach/sanpham/home/<%=i._id%>" style="text-decoration: none;color: black;">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-discount-check-filled" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M12.01 2.011a3.2 3.2 0 0 1 2.113 .797l.154 .145l.698 .698a1.2 1.2 0 0 0 .71 .341l.135 .008h1a3.2 3.2 0 0 1 3.195 3.018l.005 .182v1c0 .27 .092 .533 .258 .743l.09 .1l.697 .698a3.2 3.2 0 0 1 .147 4.382l-.145 .154l-.698 .698a1.2 1.2 0 0 0 -.341 .71l-.008 .135v1a3.2 3.2 0 0 1 -3.018 3.195l-.182 .005h-1a1.2 1.2 0 0 0 -.743 .258l-.1 .09l-.698 .697a3.2 3.2 0 0 1 -4.382 .147l-.154 -.145l-.698 -.698a1.2 1.2 0 0 0 -.71 -.341l-.135 -.008h-1a3.2 3.2 0 0 1 -3.195 -3.018l-.005 -.182v-1a1.2 1.2 0 0 0 -.258 -.743l-.09 -.1l-.697 -.698a3.2 3.2 0 0 1 -.147 -4.382l.145 -.154l.698 -.698a1.2 1.2 0 0 0 .341 -.71l.008 -.135v-1l.005 -.182a3.2 3.2 0 0 1 3.013 -3.013l.182 -.005h1a1.2 1.2 0 0 0 .743 -.258l.1 -.09l.698 -.697a3.2 3.2 0 0 1 2.269 -.944zm3.697 7.282a1 1 0 0 0 -1.414 0l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.32 1.497l2 2l.094 .083a1 1 0 0 0 1.32 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z" stroke-width="0" fill="currentColor"></path>
+             </svg> <%=i.tenloai%>
+            </a>
+            <% })%>
+
+          </li>
+      </ul>
+
+      <div class="dropdown" style="margin: 20px;">
+        <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="true">
+          View by product price <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrows-exchange-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M17 10h-14l4 -4"></path>
+            <path d="M7 14h14l-4 4"></path>
+         </svg>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="/khach/sanpham/tang">Xem theo giá tăng dần<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-up" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 5l0 14"></path>
+            <path d="M16 9l-4 -4"></path>
+            <path d="M8 9l4 -4"></path>
+         </svg></a></li>
+          <li><a class="dropdown-item" href="/khach/sanpham/giam">Xem theo giá giảm dần <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-down" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 5l0 14"></path>
+            <path d="M16 15l-4 4"></path>
+            <path d="M8 15l4 4"></path>
+         </svg></a></li>
+        </ul>
       </div>
-      <script src="/bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
+
+
+    </div>
+
+    <div class="container">
+      <div style="margin-top: 15px;">
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="tensp">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+      <div style="float: right; margin-top: 15px; margin-right: 10px;">
+        <h5>
+          <%= demlist %> sản phẩm
+        </h5>
+      </div>
+      <div style="margin-top: 55px;" class="row">
+        <% list.forEach(function(i){ %>
+          <div class="card" style="height: 19rem; width: 14rem; padding: 10px; margin: 10px;">
+            <a href="/khach/sanpham/chitietsanpham/<%= i._id %>">
+              <img src="<%= i.image %>" class="card-img-top"
+                style="width: 200px; height: 200px; margin-left: auto; margin-right: auto;">
+            </a>
+
+            <div class="card-body">
+              <h5 class="card-text">
+                <%= i.tensp %>
+              </h5>
+              <h5 class="card-title" style="color: red;">
+                <%= i.giatien%> VND
+              </h5>
+            </div>
+          </div>
+          <%}) %>
+      </div>
+
+    </div>
+  </div>
+  <script src="/bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

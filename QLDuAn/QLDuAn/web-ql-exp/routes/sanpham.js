@@ -7,7 +7,8 @@ var upload = multer({ dest : './tmp'});
 
 router.get('/home',spCtrl.home );
 router.post('/home',spCtrl.home );
-
+router.get('/tang',spCtrl.giatientang);
+router.get('/giam',spCtrl.giatiengiam);
 
 router.get('/addsp',spCtrl.addsp);
 router.post('/addsp',upload.single('image'),spCtrl.addsp);

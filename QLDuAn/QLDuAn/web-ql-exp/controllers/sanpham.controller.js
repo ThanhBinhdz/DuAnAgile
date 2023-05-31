@@ -50,6 +50,36 @@ exports.loctheoLoai = async (req,res,next) => {
 
 }
 
+exports.giatientang = async (req,res,next)=> {
+
+    var listLoai = await myDB.loaiModel.find();
+
+
+
+    var list = await myDB.spModel.find().sort( {giatien : 1}).populate('idloai');
+
+    
+
+    res.render('adminsanpham/home', { list : list, listLoai : listLoai});
+}
+exports.giatiengiam = async (req,res,next)=> {
+
+    var listLoai = await myDB.loaiModel.find();
+
+
+
+    var list = await myDB.spModel.find().sort( {giatien : -1}).populate('idloai');
+
+    
+
+    res.render('adminsanpham/home', { list : list, listLoai : listLoai});
+}
+
+
+
+
+
+
 exports.addsp = async (req, res, next) => {
     var listLoai = await myDB.loaiModel.find();
     if (req.method == 'POST') {

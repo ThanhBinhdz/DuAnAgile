@@ -31,14 +31,42 @@ exports.loctheoLoai = async (req,res,next) => {
 
     var listLoai = await myDB.loaiModel.find();
     let idloai = req.params.idloai;
-
+    var demlist = await myDB.spModel.find().count();
     let dieu_kien_loc = {idloai : idloai};
 
      var list = await myDB.spModel.find(dieu_kien_loc).populate('idloai');
 
-    res.render('adminsanpham/home',{list : list , listLoai : listLoai} );
+    res.render('khachsanpham/khachlist',{list : list , listLoai : listLoai , demlist: demlist} );
 
 }
+
+exports.giatientang = async (req,res,next)=> {
+
+    var listLoai = await myDB.loaiModel.find();
+    var demlist = await myDB.spModel.find().count();
+
+
+    var list = await myDB.spModel.find().sort( {giatien : 1}).populate('idloai');
+
+    
+
+    res.render('khachsanpham/khachlist', { list : list, listLoai : listLoai, demlist: demlist});
+}
+
+
+exports.giatiengiam = async (req,res,next)=> {
+
+    var listLoai = await myDB.loaiModel.find();
+
+    var demlist = await myDB.spModel.find().count();
+
+    var list = await myDB.spModel.find().sort( {giatien : -1}).populate('idloai');
+
+    
+
+    res.render('khachsanpham/khachlist', { list : list, listLoai : listLoai, demlist: demlist});
+}
+
 
 exports.chitietsanpham = async (req,res,next) => {
 
