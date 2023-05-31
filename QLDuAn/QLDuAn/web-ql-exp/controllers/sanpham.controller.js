@@ -9,7 +9,7 @@ exports.home = async (req, res, next) => {
             _id: req.query.cate_id,
         };
     }
-
+    
     if (typeof (req.query.tensp) != 'undefined') {
         dieu_Kien = { tensp: new RegExp('.*' + req.query.tensp + '.*') };
     }
