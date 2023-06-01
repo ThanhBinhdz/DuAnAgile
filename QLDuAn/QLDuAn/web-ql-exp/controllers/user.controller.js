@@ -9,7 +9,8 @@ exports.dangnhap = async (req,res,next)=> {
             if(objU != null){
                 if(objU.passwd == req.body.passwd){
                     if(req.body.username == 'admin'){
-                        // req.session.userLogin = objU;
+                        req.session.userLogin = objU;
+                        console.log(req.session.userLogin);
                     return res.redirect('/admin/sanpham/home');
                     }else {
                         return res.redirect('/khach/sanpham/home')
@@ -50,6 +51,7 @@ exports.dangky =async (req,res,next) => {
 }
 
 exports.thongtin =async (req,res,next) => {
+    var username = req.session.userLogin.username;
     let msg = '';
     let msg1 = '';
     let listUser = await myDB.userModel.find();
@@ -61,6 +63,6 @@ exports.thongtin =async (req,res,next) => {
       
       
     }
-    res.render('adminuser/thongtin', {msg : msg,msg1 : msg1, listUser : listUser});
+    res.render('adminuser/thongtin', {msg : msg,msg1 : msg1, listUser : listUser, username : username});
 
 }
