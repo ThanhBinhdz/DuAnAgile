@@ -43,7 +43,12 @@ exports.loctheoLoai = async (req,res,next) => {
     let idloai = req.params.idloai;
 
     let dieu_kien_loc = {idloai : idloai};
+    if (typeof (req.query.tensp) != 'undefined') {
+        dieu_kien_loc = { tensp: new RegExp('.*' + req.query.tensp + '.*') };
+    }
 
+
+   
      var list = await myDB.spModel.find(dieu_kien_loc).populate('idloai');
 
     res.render('adminsanpham/home',{list : list , listLoai : listLoai} );
