@@ -53,17 +53,19 @@ exports.dangky = async (req, res, next) => {
 }
 
 exports.thongtin = async (req, res, next) => {
+    let dieu_Kien = null;
+
+    if (typeof (req.query.username) != 'undefined') {
+        dieu_Kien = { username: new RegExp('.*' + req.query.username + '.*') };
+    }
     var username = req.session.userLogin.username;
     let msg = '';
     let msg1 = '';
-    let listUser = await myDB.userModel.find();
+    let listUser = await myDB.userModel.find(dieu_Kien);
     if (req.method == 'POST') {
         let objThongTin = new myDB.userModel();
         objThongTin.id = req.body.id;
         objThongTin.username = req.body.username;
-
-
-
     }
     res.render('adminuser/thongtin', { msg: msg, msg1: msg1, listUser: listUser, username: username });
 
