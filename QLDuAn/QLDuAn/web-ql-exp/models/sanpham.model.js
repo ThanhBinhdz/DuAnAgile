@@ -35,7 +35,21 @@ const loaiSPSchema = new db.mongoose.Schema(
     }
 )
 
+const donhangSchema = new db.mongoose.Schema(
+    {
+        soluong : {type : Number , required : true},
+        giamua : {type : Number , required : true},
+        ngay_muahang : {type : String , required : true},
+        trangthai : {type : String , required : true},
+        id_user : {type : db.mongoose.Schema.Types.ObjectId , ref : 'userModel'} ,
+        id_sp : {type : db.mongoose.Schema.Types.ObjectId , ref : 'spModel'}
+    },
+    {
+        collection : 'db_donhang'
+    }
+)
+
 let spModel = db.mongoose.model('spModel',spSchema);
 let loaiModel = db.mongoose.model('loaiModel',loaiSPSchema);
-
-module.exports = {spModel,loaiModel};
+let donhangModel = db.mongoose.model('donhangModel',donhangSchema);
+module.exports = {spModel,loaiModel,donhangModel};
