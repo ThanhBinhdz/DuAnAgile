@@ -41,7 +41,7 @@ exports.loctheoLoai = async (req,res,next) => {
 
     var listLoai = await myDB.loaiModel.find();
     let idloai = req.params.idloai;
-
+    
     let dieu_kien_loc = {idloai : idloai};
     if (typeof (req.query.tensp) != 'undefined') {
         dieu_kien_loc = { tensp: new RegExp('.*' + req.query.tensp + '.*') };
