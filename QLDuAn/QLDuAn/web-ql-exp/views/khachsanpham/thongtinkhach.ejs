@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container" style="color: white;">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                      <a style="padding: 5px; font-weight: 700; margin-top: 8px;" class="nav-link " href="/khach/sanpham/home"
+                        role="button" aria-expanded="false">
+                        Danh mục sản phẩm
+                      </a>
+                    </li>
+                    <li class="nav-item" style="padding: 5px; font-weight: 400; margin-left: 30px;">
+                      <a class="nav-link" href="#">Trang chủ</a>
+                    </li>
+                    <li class="nav-item" style="padding: 5px; font-weight: 400;">
+                      <a class="nav-link" href="#">Sản phẩm</a>
+                    </li>
+                    <li class="nav-item" style="padding: 5px; font-weight: 400;">
+                      <a class="nav-link" href="https://vnexpress.net/">Tin tức</a>
+                    </li>
+                    <li class="nav-item" style="padding: 5px; font-weight: 400;">
+                      <a class="nav-link" href="#">Liên hệ</a>
+                    </li>
+                   
+                    <li class="nav-item dropdown" style="padding: 5px;font-weight: 400;">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                          aria-expanded="false">
+                          Thông tin
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="/khach/sanpham/thongtinkhach">Account</a></li>
+                          <li><a class="dropdown-item" href="/">Log Out</a></li>
+                          <!-- <li>
+                              <hr class="dropdown-divider">
+                          </li> -->
+                      </ul>
+                  </li>
+            
+                 
+                
+                </div>
+                </div>
+              </nav>
+        </div>
+    </div>
+    <div class="container" style="text-align: center;margin-top: 50px;">
+        <img src="/images/bg1.png" alt="" style="border-radius: 100%;width: 100px;height: 100px;margin-bottom: 10px;">
+        <div style="display: flex;justify-content: center;align-items: flex-start;margin:  0 auto;">
+            <h4 style="margin-right: 10px;"><%=username%></h4>
+          <a href="/khach/sanpham/doimkkhach" style="color: black;">
+            <svg xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-edit" width="30" height="30" viewBox="0 0 24 24" stroke-width="2"
+            stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
+            <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
+            <path d="M16 5l3 3"></path>
+        </svg>
+          </a>
+
+        </div>
+       
+    </div>
+    <script src="/bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

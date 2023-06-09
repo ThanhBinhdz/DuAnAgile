@@ -72,24 +72,25 @@ exports.doimk = async (req,res,next) =>{
     if (req.method == 'POST') {
         if(req.body.passwdcu != req.session.userLogin.passwd){
             msg = 'Chưa đúng mật khẩu cũ';
-            
         }
-        if (req.body.passwd1 != req.body.passwd2) {
+        else if (req.body.passwd1 != req.body.passwd2) {
             msg = 'Password không khớp nhau';
             
+        }else {
+            let objMK = new myDB.userModel();
+            objMK.passwd = req.body.passwd1;
+    
+            objMK._id = req.session.userLogin._id;
+            try {
+                await myDB.userModel.findByIdAndUpdate({ _id: req.session.userLogin._id }, objMK);
+                msg = "Đổi mật khẩu thành công";
+                res.redirect('/')
+            } catch (error) {
+                msg = "loi"
+                console.log(error);
+            }
         }
-        let objMK = new myDB.userModel();
-        objMK.passwd = req.body.passwd1;
-
-        objMK._id = req.session.userLogin._id;
-        try {
-            await myDB.userModel.findByIdAndUpdate({ _id: req.session.userLogin._id }, objMK);
-            msg = "Đổi mật khẩu thành công";
-            res.redirect('/')
-        } catch (error) {
-            msg = "loi"
-            console.log(error);
-        }
+      
 
 
 
