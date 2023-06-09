@@ -70,8 +70,18 @@ exports.doimk = async (req,res,next) =>{
     let msg = '';
     let msg1 = '';
     if (req.method == 'POST') {
-        if(req.body.passwdcu != req.session.userLogin.passwd){
+        if(req.body.passwdcu == ""){
+            msg = 'Không để trống password cũ';
+        }
+        else if(req.body.passwd1 == ""){
+            msg = 'Không để trống password mới';
+        }
+        else if(req.body.passwd2 == ""){
+            msg = 'Không để trống password mới nhập lại';
+        }
+        else if(req.body.passwdcu != req.session.userLogin.passwd){
             msg = 'Chưa đúng mật khẩu cũ';
+            
         }
         else if (req.body.passwd1 != req.body.passwd2) {
             msg = 'Password không khớp nhau';
