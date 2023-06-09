@@ -76,15 +76,16 @@
         <img src="/images/bg1.png" alt="" style="border-radius: 100%;width: 100px;height: 100px;margin-bottom: 10px;">
         <div style="display: flex;justify-content: center;align-items: flex-start;margin:  0 auto;">
             <h4 style="margin-right: 10px;"><%=username%></h4>
-            <svg data-bs-toggle="modal" data-bs-target="#staticBackdrop" xmlns="http://www.w3.org/2000/svg"
-                class="icon icon-tabler icon-tabler-edit" width="30" height="30" viewBox="0 0 24 24" stroke-width="2"
-                stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
-                <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
-                <path d="M16 5l3 3"></path>
-            </svg>
-
+          <a href="/doimk" style="color: black;">
+            <svg xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-edit" width="30" height="30" viewBox="0 0 24 24" stroke-width="2"
+            stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
+            <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
+            <path d="M16 5l3 3"></path>
+        </svg>
+          </a>
 
         </div>
        
@@ -159,10 +160,8 @@
                                                 stroke-width="0" fill="currentColor"></path>
                                         </svg>
                                     </a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item " href="thongtin">>></a></li>
+                            
+                        
                             </ul>
                         </th>
                         <!-- <th scope="col">Email</th> -->
@@ -271,39 +270,25 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="" method="post" >
                         <div class="mb-3" style="text-align: left;">
-                            <label for="exampleInputUser1" class="form-label">User address</label>
-                            <input type="username" class="form-control" id="exampleInputUser1"
-                                aria-describedby="userHelp">
-                        </div>
-                        <div class="mb-3" style="text-align: left;">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
+                            <label for="exampleInputEmail1" class="form-label">Nhập mật khẩu cũ</label>
+                            <input type="password" class="form-control" name="passwdcu"
                                 aria-describedby="emailHelp">
                         </div>
+                        <p><%=msg1%></p>
                         <div class="mb-3" style="text-align: left;">
-                            <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <label for="exampleInputPassword1" class="form-label">Nhập mật khẩu mới</label>
+                            <input type="password" class="form-control" name="passwd1">
                         </div>
                         <div class="mb-3" style="text-align: left;">
-                            <label for="exampleInputRole1" class="form-label">Role address</label>
-                            <input type="role" class="form-control" id="exampleInputRole1" aria-describedby="roleHelp">
+                            <label for="exampleInputRole1" class="form-label">Nhập lại mật khẩu mới</label>
+                            <input type="password" class="form-control" name="passwd2" aria-describedby="roleHelp">
                         </div>
-
-                        <div class="mb-3" style="text-align: left;">
-                            <a href="#" style="color: rgb(78, 86, 93);">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                    class="bi bi-images" viewBox="0 0 16 16">
-                                    <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-                                    <path
-                                        d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
-                                </svg>
-                            </a>
-                        </div>
+                        <p><%=msg%></p>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Understood</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Quay lại</button>
+                            <button type="submit" class="btn btn-primary">Cập Nhật</button>
                         </div>
                     </form>
 

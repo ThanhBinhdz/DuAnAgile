@@ -13,6 +13,9 @@ router.get('/dangky',userCtrl.dangky);
 router.post('/dangky',userCtrl.dangky);
 
 router.get('/thongtin',check_login.yeu_cau_login,userCtrl.thongtin);
-router.post('/thongtin',userCtrl.thongtin);
+router.post('/thongtin',check_login.yeu_cau_login,userCtrl.thongtin);
 
+
+router.get('/doimk',check_login.yeu_cau_login,userCtrl.doimk);
+router.post('/doimk',check_login.yeu_cau_login,userCtrl.doimk);
 module.exports = router;

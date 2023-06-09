@@ -62,11 +62,37 @@ exports.thongtin = async (req, res, next) => {
     let msg = '';
     let msg1 = '';
     let listUser = await myDB.userModel.find(dieu_Kien);
-    if (req.method == 'POST') {
-        let objThongTin = new myDB.userModel();
-        objThongTin.id = req.body.id;
-        objThongTin.username = req.body.username;
-    }
+   
     res.render('adminuser/thongtin', { msg: msg, msg1: msg1, listUser: listUser, username: username });
 
+}
+exports.doimk = async (req,res,next) =>{
+    let msg = '';
+    let msg1 = '';
+    if (req.method == 'POST') {
+        if(req.body.passwdcu != req.session.userLogin.passwd){
+            msg = 'Chưa đúng mật khẩu cũ';
+            
+        }
+        if (req.body.passwd1 != req.body.passwd2) {
+            msg = 'Password không khớp nhau';
+            
+        }
+        let objMK = new myDB.userModel();
+        objMK.passwd = req.body.passwd1;
+
+        objMK._id = req.session.userLogin._id;
+        try {
+            await myDB.userModel.findByIdAndUpdate({ _id: req.session.userLogin._id }, objMK);
+            msg = "Đổi mật khẩu thành công";
+            res.redirect('/')
+        } catch (error) {
+            msg = "loi"
+            console.log(error);
+        }
+
+
+
+    }
+    res.render('adminuser/doimk', {msg : msg});
 }

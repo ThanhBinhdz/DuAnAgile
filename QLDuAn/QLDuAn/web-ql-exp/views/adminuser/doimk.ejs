@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
+    <title>Đăng Ký</title>
+</head>
+<!-- nguyennguvcl -->
+<body>
+    <div class="container-fluid"
+        style="background-image: url('../images/image.png');background-size: 100% 100%;padding-bottom: 300px;padding-top: 50px;">
+        <div class="container col-8" style="display:flex;grid-gap: 35px; text-align: center;">
+            <div class="row border border-dark-subtle border-start rounded-start "
+                style="margin-top: 50px;width: 500px;height: 500px;;background-image: url('../images/avt.png');background-size: 100% 100%;margin-bottom: 14px; ">
+            </div>
+            <div class="row" style="margin-top: 50px;width: 500px;">
+                <div class="row border border-dark-subtle border-start rounded-end"
+                    style="padding: 10px;margin-bottom: 15px;background-color: #fff;">
+                    <h4 style="margin-top: 10px;margin-bottom: 20px;">Đổi Mật Khẩu</h4>
+                    <form action="" method="post">
+                        <div class="mb-3" style="text-align: left;">
+                            <label for="exampleInputEmail1" class="form-label">Nhập mật khẩu cũ</label>
+                            <input type="password" class="form-control" name="passwdcu" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3" style="text-align: left;">
+                            <label for="exampleInputPassword1" class="form-label">Nhập mật khẩu mới</label>
+                            <input type="password" class="form-control" name="passwd1">
+                        </div>
+                        <div class="mb-3" style="text-align: left;">
+                            <label for="exampleInputRole1" class="form-label">Nhập lại mật khẩu mới</label>
+                            <input type="password" class="form-control" name="passwd2" aria-describedby="roleHelp">
+                        </div>
+                        <p>
+                            <%=msg%>
+                        </p>
+                        <div class="mb-3">
+                            
+                            <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" href="./">
+                                Cập nhật   
+                                
+                            </button>
+                        </div>
+                    </form>
+            
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <%= msg %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script src="../bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
