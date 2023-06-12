@@ -80,7 +80,8 @@ exports.chitietsanpham = async (req,res,next) => {
     let idsp = req.params.idsp;
     var listsp = await myDB.spModel.findById(idsp).populate('idloai');
     let listUser = await myDB1.userModel.findOne({ username: req.session.userLogin.username});
-
+    var today = new Date();
+    var date = today.getDate()+ '-' + (today.getMonth()+1) + '-' + today.getFullYear();
     let msg = '';
     if (req.method == 'POST') {
         let objDH = new myDB.donhangModel();
@@ -89,8 +90,8 @@ exports.chitietsanpham = async (req,res,next) => {
         objDH.id_user = listUser._id;
         objDH.soluong = req.body.soluong;
         objDH.giamua = req.body.soluong * (listsp.giatien);
-        objDH.ngay_muahang = '2003';
-        objDH.trangthai = '1'
+        objDH.ngay_muahang = date;
+        objDH.trangthai = 'Đang Xử Lý'
         try {
             await objDH.save();
             msg = 'Đặt hàng thành công'
