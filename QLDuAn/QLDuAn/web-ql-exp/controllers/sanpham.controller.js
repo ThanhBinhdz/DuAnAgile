@@ -4,20 +4,13 @@ var fs = require('fs');
 exports.home = async (req, res, next) => {
     let dieu_Kien = null;
     let filterByCate = null;
-    if (req.query.cate_id) {
-        filterByCate = {
-            _id: req.query.cate_id,
-        };
-    }
     
     if (typeof (req.query.tensp) != 'undefined') {
         dieu_Kien = { tensp: new RegExp('.*' + req.query.tensp + '.*') };
     }
     var list = await myDB.spModel.find(dieu_Kien).populate('idloai');
 
-    var listProductByCateId = await myDB.loaiModel
-        .findOne(filterByCate)
-        .populate("products").lean();
+    
 
 
     var listLoai = await myDB.loaiModel.find();
