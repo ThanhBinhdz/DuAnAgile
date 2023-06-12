@@ -79,8 +79,30 @@ exports.chitietsanpham = async (req,res,next) => {
 
     let idsp = req.params.idsp;
     var listsp = await myDB.spModel.findById(idsp).populate('idloai');
+    let listUser = await myDB1.userModel.findOne({ username: req.session.userLogin.username});
 
-    res.render('khachsanpham/chitietsanpham', {listsp: listsp});
+    let msg = '';
+    if (req.method == 'POST') {
+        let objDH = new myDB.donhangModel();
+
+        objDH.id_sp = idsp;
+        objDH.id_user = listUser._id;
+        objDH.soluong = req.body.soluong;
+        objDH.giamua = req.body.soluong * (listsp.giatien);
+        objDH.ngay_muahang = '2003';
+        objDH.trangthai = '1'
+        try {
+            await objDH.save();
+            msg = 'Đặt hàng thành công'
+            console.log('Thêm thành công ở đây '+ objDH);
+        } catch (error) {
+            console.log(error);
+            msg = 'Đặt hàng thất bại ' + error
+        }
+    }
+
+
+    res.render('khachsanpham/chitietsanpham', {listsp: listsp, msg: msg});
 
 }
 exports.thongtinkhach = async (req,res,next)=> {
@@ -127,4 +149,8 @@ exports.doimkkhach = async (req,res,next) =>{
 
     }
     res.render('khachsanpham/doimkkhach', {msg : msg});
+}
+
+exports.dathang = async(req, res, nest) => {
+    
 }
