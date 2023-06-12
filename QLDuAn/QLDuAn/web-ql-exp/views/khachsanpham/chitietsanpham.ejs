@@ -36,6 +36,7 @@
     </div>
   </nav>
   <div>
+    <%= msg %>
     <div style="display: flex;">
       <div style="padding: 30px; margin: 20px; border-radius: 20px;" class="card">
         <img src="<%= listsp.image %>" class="card-img-top"
@@ -65,7 +66,7 @@
           <h1 class="modal-title fs-5" id="exampleModalLabel">Đặt Hàng</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form action="">
+        <form action="" method="post">
           <div class="modal-body">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Nhập số lượng sản phẩm</label>
@@ -93,7 +94,7 @@
           <div class="modal-footer">
             
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Quay Lại</button>
-            <button type="button" class="btn btn-primary">Đặt Hàng</button>
+            <button type="submit" class="btn btn-primary" >Đặt Hàng</button>
           </div>
         </form>
 
