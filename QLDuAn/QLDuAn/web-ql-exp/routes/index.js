@@ -6,8 +6,23 @@ router.use ( (req,res,next)=>{
     console.log('middleware');
     next();
 });
-router.get('/',userCtrl.dangnhap);
-router.post('/',userCtrl.dangnhap);
+router.get('/',userCtrl.trangchu);
+router.post('/',userCtrl.trangchu);
+
+router.get('/tang',userCtrl.giatientang);
+router.get('/giam',userCtrl.giatiengiam);
+router.get('/:idloai',userCtrl.loctheoLoai);
+
+
+router.get('/chitietsp/:idsp',userCtrl.chitietsanpham );
+router.post('/chitietsp/:idsp',userCtrl.chitietsanpham );
+
+
+
+
+router.get('/dangnhap',userCtrl.dangnhap);
+router.post('/dangnhap',userCtrl.dangnhap);
+
 
 router.get('/dangky',userCtrl.dangky);
 router.post('/dangky',userCtrl.dangky);
