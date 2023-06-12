@@ -16,6 +16,7 @@ router.get('/home/:idloai',check_login.yeu_cau_login,spCtrl.loctheoLoai);
 
 router.get('/chitietsanpham/:idsp',check_login.yeu_cau_login,spCtrl.chitietsanpham );
 router.post('/chitietsanpham/:idsp',check_login.yeu_cau_login,spCtrl.chitietsanpham );
+
 router.get('/thongtinkhach',check_login.yeu_cau_login,spCtrl.thongtinkhach);
 router.post('/thongtinkhach',check_login.yeu_cau_login,spCtrl.thongtinkhach);
 router.get('/doimkkhach',check_login.yeu_cau_login,spCtrl.doimkkhach);
