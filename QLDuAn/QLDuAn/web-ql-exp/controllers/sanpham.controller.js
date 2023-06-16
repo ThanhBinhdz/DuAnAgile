@@ -4,13 +4,20 @@ var fs = require('fs');
 exports.home = async (req, res, next) => {
     let dieu_Kien = null;
     let filterByCate = null;
+    if (req.query.cate_id) {
+        filterByCate = {
+            _id: req.query.cate_id,
+        };
+    }
     
     if (typeof (req.query.tensp) != 'undefined') {
         dieu_Kien = { tensp: new RegExp('.*' + req.query.tensp + '.*') };
     }
     var list = await myDB.spModel.find(dieu_Kien).populate('idloai');
 
-    
+    var listProductByCateId = await myDB.loaiModel
+        .findOne(filterByCate)
+        .populate("products").lean();
 
 
     var listLoai = await myDB.loaiModel.find();
@@ -151,6 +158,7 @@ exports.xacnhandeleteSP = async (req, res, next) => {
 
 
 
+
 exports.editloai = async (req, res, next) => {
 
     let idLoai = req.params.idloai;
@@ -187,4 +195,30 @@ exports.xacnhandeleteLoai = async (req, res, next) => {
         console.log(error);
     }
     res.render('adminsanpham/home');
+}
+
+
+exports.donhang = async(req, res, nest) => {
+    let msg;
+    let listDonhang = await myDB.donhangModel.find().populate('id_sp').populate('id_user');
+
+    console.log(listDonhang);
+    res.render('adminsanpham/donhang', {listDonhang : listDonhang});
+}
+exports.doitrangthai = async (req,res,next)=>{
+    let id = req.params.id;
+    let listDonhang = await myDB.donhangModel.findById(id);
+    if (req.method == 'POST') {
+        let obj = new myDB.donhangModel();
+        obj.trangthai = req.body.trangthai;
+        obj._id = id;
+        try {
+            await myDB.donhangModel.findByIdAndUpdate({ _id: id }, obj);
+            res.redirect('/admin/sanpham/donhang');
+        } catch (error) {
+
+        }
+    }
+
+    res.render('adminsanpham/doitrangthai',{listDonhang : listDonhang});
 }

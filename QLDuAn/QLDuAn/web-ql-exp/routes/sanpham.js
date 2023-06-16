@@ -19,8 +19,6 @@ router.post('/addsp',check_login.yeu_cau_login,upload.single('image'),spCtrl.add
 
 router.get('/home/:idloai',check_login.yeu_cau_login,spCtrl.loctheoLoai);
 
-
-
 router.get('/editSP/:idsp',check_login.yeu_cau_login,spCtrl.editsp );
 router.post('/editSP/:idsp',check_login.yeu_cau_login,upload.single('image'),spCtrl.editsp );
 
@@ -37,5 +35,8 @@ router.delete('/deleteLoai/:idloai',check_login.yeu_cau_login,spCtrl.deleteLoai)
 router.get('/xacnhandeleteLoai/:idloai',check_login.yeu_cau_login,spCtrl.xacnhandeleteLoai);
 router.delete('/xacnhandeleteLoai/:idloai',check_login.yeu_cau_login,spCtrl.xacnhandeleteLoai);
 
+router.get('/donhang',check_login.yeu_cau_login,spCtrl.donhang);
 
+router.get('/doitrangthai/:id',check_login.yeu_cau_login,spCtrl.doitrangthai);
+router.post('/doitrangthai/:id',check_login.yeu_cau_login,spCtrl.doitrangthai);
 module.exports = router;

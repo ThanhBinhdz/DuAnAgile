@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container" style="color: white;">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a style="padding: 5px; font-weight: 700; margin-top: 8px;" class="nav-link "
+                                href="/khach/sanpham/home" role="button" aria-expanded="false">
+                                Danh mục sản phẩm
+                            </a>
+                        </li>
+                        <li class="nav-item" style="padding: 5px; font-weight: 400;">
+                            <a class="nav-link" href="/khach/sanpham/donhangkhach">Sản phẩm đã đặt</a>
+                        </li>
+                        <li class="nav-item" style="padding: 5px; font-weight: 400;">
+                            <a class="nav-link" href="https://vnexpress.net/">Tin tức</a>
+                        </li>
+
+                        <li class="nav-item dropdown" style="padding: 5px;font-weight: 400;">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Thông tin
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/khach/sanpham/thongtinkhach">Account</a></li>
+                                <li><a class="dropdown-item" href="/">Log Out</a></li>
+                                <!-- <li>
+                                  <hr class="dropdown-divider">
+                              </li> -->
+                            </ul>
+                        </li>
+
+
+
+                </div>
+        </div>
+        </nav>
+    </div>
+    <div class="container-fluid" style="background-color: rgb(215, 252, 226);padding-bottom: 150px;">
+        <div>
+            <% listDonhang.forEach( function(i){ %>
+                <div style="display: flex;margin: 0px 20px 20px 20px;">
+                    <div style="padding: 30px; margin: 20px; border-radius: 20px;" class="card">
+                        <img src="<%= i.id_sp.image %>" class="card-img-top"
+                            style="width: 150px; height: 150px; border-radius: 20px; border: 2px black solid;">
+                    </div>
+                    <div style="margin: 20px;">
+                        <h3 style="padding-bottom: 40px;color: rgb(249, 6, 184);">Sản Phẩm: <%= i.id_sp.tensp %>
+                        </h3>
+                        <h5 style="margin: 10px;">Giá mua: <%= i.giamua %>
+                        </h5>
+                        <h5 style="margin: 10px;">Ngày mua: <%= i.ngay_muahang %> VNĐ
+                        </h5>
+                        <div style="display: flex;">
+                            <h5 style="margin: 10px;">Trạng thái:   
+                            </h5>
+                            <% if(i.trangthai == 'Đã Thanh Toán'){%>
+                                <h5 style="margin: 10px;color: rgb(47, 250, 2);">
+                                    <%= i.trangthai %>
+                                </h5>
+                            <%}else if(i.trangthai == 'Đang Vận Chuyển'){%>
+                                <h5 style="margin: 10px;color: rgb(52, 2, 250);">
+                                    <%= i.trangthai %>
+                                </h5>
+                            <%}else if(i.trangthai == 'Chưa Thanh Toán'){%>
+                                <h5 style="margin: 10px;color: rgb(250, 229, 2);">
+                                    <%= i.trangthai %>
+                                </h5>
+                            <%}else{%>
+                                <h5 style="margin: 10px;color: rgb(234, 6, 6);">
+                                    <%= i.trangthai %>
+                                </h5>
+                            <%}%>
+                        </div>
+                       
+                    </div>
+                </div>
+                <% })%>
+        </div>
+        <div></div>
+    </div>
+    <script src="/bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

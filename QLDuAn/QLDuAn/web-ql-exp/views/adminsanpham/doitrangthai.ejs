@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
     <title>Document</title>
@@ -46,16 +45,24 @@
                             </li>
 
                             <li>
-                                <a class="nav-link" href="/admin/sanpham/donhang" style="margin-left: 15px;margin-right: 15px;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clipboard-list" width="24" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <a class="nav-link" href="/admin/sanpham/donhang"
+                                    style="margin-left: 15px;margin-right: 15px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="icon icon-tabler icon-tabler-clipboard-list" width="24" height="25"
+                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"></path>
-                                        <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"></path>
+                                        <path
+                                            d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2">
+                                        </path>
+                                        <path
+                                            d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z">
+                                        </path>
                                         <path d="M9 12l.01 0"></path>
                                         <path d="M13 12l2 0"></path>
                                         <path d="M9 16l.01 0"></path>
                                         <path d="M13 16l2 0"></path>
-                                     </svg>
+                                    </svg>
                                 </a>
                             </li>
                             <li class="nav-item dropdown" style="margin-left: 15px; margin-right: 15px;">
@@ -84,20 +91,37 @@
             </nav>
         </div>
     </div>
-    <div style="margin: 20px;">
-        <h4>Bạn có muốn xóa sản phẩm : <%=list.tensp%>
-        </h4>
-        <div style="display: flex;">
-            <button>
-                <a href="/admin/sanpham/home" style="text-decoration: none; color: black;">Quay Lại</a>
-            </button>
-            <button style="margin-left: 20px;">
-                <a href="/admin/sanpham/xacnhandeleteSP/<%=list._id%>"
-                    style="text-decoration: none; color: black;">Delete</a>
-            </button>
+    <div class="container-fluid" style="margin: 50px;">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/admin/sanpham/home">Home</a></li>
+                <li class="breadcrumb-item"><a href="/admin/sanpham/donhang">Đơn Hàng</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Trạng Thái</li>
+            </ol>
+        </nav>
+        <script src="/bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
+        <div>
+            <form action="" method="post">
+                <div class="mb-3">
+                    <div class="mb-3">
+                        <div class="col-md-3">
+                            <label for="validationDefault04" class="form-label">Thay đổi trạng thái</label>
+                            <select class="form-select" name="trangthai" required>
+                                <option selected disabled value="">
+                                    <%=listDonhang.trangthai%>
+                                </option>
+                                <option value="Đang Xử Lý">Đang Xử Lý</option>
+                                <option value="Đang Vận Chuyển">Đang Vận Chuyển</option>
+                                <option value="Chưa Thanh Toán">Chưa Thanh Toán</option>
+                                <option value="Đã Thanh Toán">Đã Thanh Toán</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Thay đổi</button>
+            </form>
         </div>
     </div>
-    <script src="/bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

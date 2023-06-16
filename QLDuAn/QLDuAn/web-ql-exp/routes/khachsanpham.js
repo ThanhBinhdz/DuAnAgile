@@ -21,4 +21,8 @@ router.get('/thongtinkhach',check_login.yeu_cau_login,spCtrl.thongtinkhach);
 router.post('/thongtinkhach',check_login.yeu_cau_login,spCtrl.thongtinkhach);
 router.get('/doimkkhach',check_login.yeu_cau_login,spCtrl.doimkkhach);
 router.post('/doimkkhach',check_login.yeu_cau_login,spCtrl.doimkkhach);
+
+router.get('/donhangkhach',check_login.yeu_cau_login,spCtrl.donhang);
+
+
 module.exports = router;

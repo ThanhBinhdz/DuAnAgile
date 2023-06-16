@@ -1,15 +1,21 @@
 var express = require('express');
 var router = express.Router();
-var userCtrl = require('../controllers/dathang.controller');
-router.get('/',userCtrl.trangchu);
-router.post('/',userCtrl.trangchu);
+var userCtrl = require('../controllers/user.controller');
+var check_login = require('../middlewares/check_login');
+router.use ( (req,res,next)=>{
+    console.log('middleware');
+    next();
+});
+router.get('/',userCtrl.dangnhap);
+router.post('/',userCtrl.dangnhap);
 
-router.get('/tang',userCtrl.giatientang);
-router.get('/giam',userCtrl.giatiengiam);
-router.get('/:idloai',userCtrl.loctheoLoai);
+router.get('/dangky',userCtrl.dangky);
+router.post('/dangky',userCtrl.dangky);
+
+router.get('/thongtin',check_login.yeu_cau_login,userCtrl.thongtin);
+router.post('/thongtin',check_login.yeu_cau_login,userCtrl.thongtin);
 
 
-router.get('/chitietsp/:idsp',userCtrl.chitietsanpham );
-router.post('/chitietsp/:idsp',userCtrl.chitietsanpham );
-
+router.get('/doimk',check_login.yeu_cau_login,userCtrl.doimk);
+router.post('/doimk',check_login.yeu_cau_login,userCtrl.doimk);
 module.exports = router;

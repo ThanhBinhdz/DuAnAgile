@@ -1,3 +1,4 @@
+const { log } = require('console');
 var myDB = require('../models/sanpham.model');
 var myDB1 = require('../models/user.model');
 var fs = require('fs');
@@ -21,7 +22,7 @@ exports.home = async (req, res, next) => {
             console.log(error);
         }
     }
-   
+    console.log(list);
     res.render('khachsanpham/khachlist', {
         list: list,
         listLoai: listLoai,
@@ -91,18 +92,20 @@ exports.chitietsanpham = async (req,res,next) => {
         objDH.soluong = req.body.soluong;
         objDH.giamua = req.body.soluong * (listsp.giatien);
         objDH.ngay_muahang = date;
-        objDH.trangthai = 'Đang Xử Lý'
+        objDH.trangthai = 'Đang Xử Lý';
         try {
             await objDH.save();
             msg = 'Đặt hàng thành công'
+            
             console.log('Thêm thành công ở đây '+ objDH);
+            res.redirect('/khach/sanpham/home');
         } catch (error) {
             console.log(error);
             msg = 'Đặt hàng thất bại ' + error
         }
     }
 
-
+    
     res.render('khachsanpham/chitietsanpham', {listsp: listsp, msg: msg});
 
 }
@@ -152,6 +155,11 @@ exports.doimkkhach = async (req,res,next) =>{
     res.render('khachsanpham/doimkkhach', {msg : msg});
 }
 
-exports.dathang = async(req, res, nest) => {
-    
+exports.donhang = async(req, res, nest) => {
+    let msg
+    let listUser = await myDB1.userModel.findOne({ username: req.session.userLogin.username});
+    let listDonhang = await myDB.donhangModel.find({id_user : req.session.userLogin._id} ).populate('id_sp');
+
+    console.log(listDonhang);
+    res.render('khachsanpham/donhangkhach', {listDonhang : listDonhang});
 }

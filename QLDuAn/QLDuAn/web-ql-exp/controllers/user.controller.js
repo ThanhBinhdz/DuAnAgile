@@ -1,5 +1,5 @@
 var myDB = require('../models/user.model');
-var myDB1 = require('../models/sanpham.model');
+
 exports.dangnhap = async (req, res, next) => {
 
     if (req.method == 'POST') {
@@ -29,7 +29,7 @@ exports.dangnhap = async (req, res, next) => {
         }
     }
 
-    res.render('adminuser/dangnhap');
+    res.render('adminuser/index');
 }
 
 exports.dangky = async (req, res, next) => {
@@ -42,7 +42,7 @@ exports.dangky = async (req, res, next) => {
         try {
             await objUser.save();
             msg = 'Da them thanh cong';
-            res.redirect('/dangnhap');
+            res.redirect('/');
         } catch (error) {
             msg = 'loi';
             console.log(error);
@@ -107,6 +107,3 @@ exports.doimk = async (req,res,next) =>{
     }
     res.render('adminuser/doimk', {msg : msg});
 }
-
-
-
