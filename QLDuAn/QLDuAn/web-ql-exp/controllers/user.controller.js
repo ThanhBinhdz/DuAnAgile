@@ -107,3 +107,24 @@ exports.doimk = async (req,res,next) =>{
     }
     res.render('adminuser/doimk', {msg : msg});
 }
+
+
+
+exports.deleteTK = async (req, res, next) => {
+    let id = req.params.id;
+    let list = await myDB.userModel.findById(id);
+
+
+    res.render('adminuser/xoatk', { list: list });
+}
+exports.xacnhandeleteTK = async (req, res, next) => {
+    let id = req.params.id;
+    try {
+        await myDB.userModel.findByIdAndDelete(id, req.body);
+        return res.redirect('/thongtin');
+    } catch (error) {
+        console.log(error);
+    }
+    res.render('adminuser/xoatk');
+}
+

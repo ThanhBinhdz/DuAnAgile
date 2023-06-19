@@ -18,4 +18,11 @@ router.post('/thongtin',check_login.yeu_cau_login,userCtrl.thongtin);
 
 router.get('/doimk',check_login.yeu_cau_login,userCtrl.doimk);
 router.post('/doimk',check_login.yeu_cau_login,userCtrl.doimk);
+
+
+router.get('/delete/:id',check_login.yeu_cau_login,userCtrl.deleteTK);
+router.delete('/delete/:id',check_login.yeu_cau_login,userCtrl.deleteTK);
+router.get('/xacnhandelete/:id',check_login.yeu_cau_login,userCtrl.xacnhandeleteTK);
+router.delete('/xacnhandelete/:id',check_login.yeu_cau_login,userCtrl.xacnhandeleteTK);
+
 module.exports = router;
